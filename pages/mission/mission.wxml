@@ -1,0 +1,16 @@
+<!--pages/mission/mission.wxml-->
+<view class="top-header flex-r-s">
+  <view 
+    class="top-header-inner {{activeIndex == item.tabIndex ? 'activeTab':''}}"
+    wx:for="{{tabList}}" 
+    wx:key="index"
+    data-index="{{item.tabIndex}}"
+    bindtap="selectTab">
+    {{item.name}}
+  </view>
+</view>
+<view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="toDeliver">
+  <view style="height:20rpx;"></view>
+  <image src="/images/send.png" style="width:44rpx;height:44rpx;"></image>
+  <view class="deliver-text">发布</view>
+</view>

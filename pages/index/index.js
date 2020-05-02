@@ -9,6 +9,11 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  toDeliver(){
+    wx.navigateTo({
+      url: '/pages/mission/toDeliver/toDeliver',
+    })
+  },
   //事件处理函数
   bindViewTap: function() {
     wx.navigateTo({

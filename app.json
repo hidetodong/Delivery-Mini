@@ -1,13 +1,41 @@
 {
-  "pages":[
+  "pages": [
+    "pages/intro/intro",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/mission/mission",
+    "pages/center/center",
+    "pages/mission/toDeliver/toDeliver"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#eee",
+    "selectedColor": "#ffa41b",
+    "list": [
+      {
+        "pagePath": "pages/intro/intro",
+        "text": "首页",
+        "iconPath": "/images/1-U.png",
+        "selectedIconPath": "/images/1-C.png"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "text": "任务",
+        "iconPath": "/images/2-U.png",
+        "selectedIconPath": "/images/2-C.png"
+      },
+      {
+        "pagePath": "pages/center/center",
+        "text": "我的",
+        "iconPath": "/images/3-U.png",
+        "selectedIconPath": "/images/3-C.png"
+      }
+    ]
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

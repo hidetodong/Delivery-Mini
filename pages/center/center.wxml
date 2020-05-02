@@ -1,0 +1,38 @@
+<!--pages/center/center.wxml-->
+<view class="top-earning-block flex-r-b">
+  <view class="earn-left">
+    <view class="flex-wrap">
+      <view style="height:30rpx;"></view>
+      <view class="earn-price">+0.00元</view>
+      <view class="earn-text">代领总收入</view>
+    </view>
+  </view>
+  <view class="earn-right">
+    <view class="flex-wrap">
+      <view style="height:30rpx;"></view>
+       <view class="earn-price">+0.00元</view>
+       <view class="earn-text">发布总支出</view>
+    </view>
+  </view>
+  <view class="square"></view>
+  <view class="slash"></view>
+</view>
+<view class="middle-user-block flex-r-s">
+  <view class="user-ava">
+    <image src="" class="user-img"></image>
+  </view>
+  <view class="user-right-block">
+    <view class="user-nickname">安安123456
+      <text class="auth-tag">未认证</text>
+    </view>
+    <view class="user-code">学号:未知</view>
+  </view>
+</view>
+<view class="to-auth flex-r-b" style="align-items:center;">
+  <view class="user-auth">学生认证</view>
+  <image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
+</view>
+<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toMission">
+  <view class="user-auth">我的任务</view>
+  <image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
+</view>

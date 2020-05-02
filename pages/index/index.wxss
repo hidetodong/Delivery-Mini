@@ -1,10 +1,40 @@
 /**index.wxss**/
+@import "../../utils/public.wxss";
 .userinfo {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
+.list-top-station{
+  border-bottom: 6rpx solid #ffa41b;
+  padding-bottom: 32rpx;
+}
+.list-body{
+  margin-top: 32rpx;
+  border-bottom: 6rpx solid #eee;
+  padding-bottom: 32rpx;
+}
+.list-btn-block{
+  margin-top: 32rpx;
+}
+.list-body-inner{
+  font-size: 26rpx;
+}
+.top-select{
+  padding:24rpx 128rpx;
+  /* margin: 24rpx 32rpx; */
+  /* border-radius: 50rpx; */
+  background: white;
+  position: sticky;
+  top:0rpx;
+  z-index: 100;
+  box-shadow: 0px 4rpx 6rpx #aaa;
+}
+.option-title{
+  font-size: 26rpx;
+  color:#aaa;
+  font-weight: 500;
+}
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
@@ -18,4 +48,72 @@
 
 .usermotto {
   margin-top: 200px;
+}
+.list-wrap{
+  margin-top: 32rpx;
+}
+.list-inner{
+  padding: 48rpx;
+  background: white;
+  border-radius: 25rpx;
+  margin: 24rpx 32rpx;
+  position: relative;
+  box-shadow: 0px 6rpx 4rpx rgba(255,164,27,0.5);
+}
+.corner-tag{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12rpx 48rpx;
+  background: #eee;
+  border-radius: 0 25rpx 0 25rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  font-size: 28rpx;
+  /* box-shadow: 4rpx -2rpx 4rpx #aaa; */
+}
+.order-price{
+  color: #ffa41b;
+  border: 4rpx solid #ffa41b;
+  border-radius: 50%;
+  /* padding: 24rpx; */
+  width: 88rpx;
+  height: 88rpx;
+  text-align: center;
+  line-height: 88rpx;
+}
+.get-btn{
+  border-radius: 25rpx;
+  padding: 8rpx 24rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: white;
+  background: #ffa41b;
+  font-size: 24rpx;
+  box-shadow: 0px 6rpx 4rpx rgba(255,164,27,0.5);
+}
+.get-btn-hover{
+  transform: translateY(6rpx);
+  box-shadow: 0px 0rpx 0rpx rgba(255,164,27,0.5);
+
+}
+.deliver-btn{
+  position: fixed;
+  right: 32rpx;
+  bottom: 128rpx;
+  width: 110rpx;
+  height: 110rpx;
+  border-radius: 50%;
+  font-size: 24rpx;
+  text-align: center;
+  background: #ffa41b;
+  box-shadow: 0px 6rpx 4rpx rgba(255,164,27,0.5);
+}
+.deliver-btn-hover{
+  transform: translateY(6rpx);
+  box-shadow: 0px 0rpx 0rpx rgba(255,164,27,0.5);
+
+}
+.deliver-text{
+  color: white;
 }

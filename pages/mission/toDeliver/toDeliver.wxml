@@ -1,0 +1,36 @@
+<!--pages/mission/toDeliver/toDeliver.wxml-->
+<view class="top-block">
+   取件信息
+</view>
+<view class="deliver-form">
+   <view class="form-inner">
+      <view class="deliver-title">取件地点:</view>
+      <view></view>
+   </view>
+   <view  class="form-inner">
+      <view class="deliver-title">送达地点:</view>
+      <view></view>
+   </view>
+   <view  class="form-inner">
+      <view class="deliver-title">快递类型:</view>
+      <view></view>
+   </view>
+   <view  class="form-inner">
+      <view class="deliver-title">联系电话:</view>
+      <view></view>
+   </view>
+   <view  class="form-inner">
+      <view class="deliver-title">任务赏金:</view>
+      <view></view>
+   </view>
+   <view  class="form-inner">
+      <view class="deliver-title">最晚送达时间:</view>
+      <view></view>
+   </view>
+   <view class="deliver-title">取件信息:</view>
+   <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此"></textarea>
+</view>
+
+<view class="bottom-btn">
+   <view  class="deliver-btn" hover-class="deliver-btn-hover">发布</view>
+</view>

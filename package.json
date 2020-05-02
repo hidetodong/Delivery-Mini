@@ -1,0 +1,22 @@
+{
+  "name": "delivery-mini",
+  "version": "1.0.0",
+  "description": "A project for graduate",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hidetodong/Delivery-Mini.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hidetodong/Delivery-Mini/issues"
+  },
+  "homepage": "https://github.com/hidetodong/Delivery-Mini#readme",
+  "dependencies": {
+    
+  }
+}
