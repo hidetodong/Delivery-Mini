@@ -12,6 +12,11 @@ Page({
       url: '/pages/mission/mission',
     })
   },
+  toAuth(){
+    wx.navigateTo({
+      url: '/pages/center/studentAuth/studentAuth',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

@@ -1,5 +1,10 @@
 /* pages/mission/mission.wxss */
 @import "../../utils/public.wxss";
+.top-header{
+  position: sticky;
+  top: 0;
+  z-index:99;
+}
 .top-header-inner{
   height: 100rpx;
   flex: 1;
@@ -33,10 +38,13 @@
   color: white;
 }
 .mission-status{
-  padding: 24rpx 128rpx;
+  padding: 24rpx 160rpx;
   background: white;
   font-size: 28rpx;
   font-weight: 600;
+  position: sticky;
+  top: 106rpx;
+  z-index:99;
 }
 .list-inner{
   background: white;
@@ -94,6 +102,7 @@
 }
 .price-info{
   margin: 24rpx 0;
+  align-items: center;
 }
 .btn-block{
   height: 100rpx;

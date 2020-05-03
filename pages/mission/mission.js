@@ -12,11 +12,52 @@ Page({
       name:"我接取的任务",
       tabIndex:1
     }],
-    activeIndex:0
+    activeIndex:0,
+    getShow:false,
+    actions: [
+      {
+        name: '选项'
+      },
+      {
+        name: '选项'
+      },
+      {
+        name: '选项',
+        subname: '副文本',
+        openType: 'share'
+      }
+    ]
   },
   toDeliver(){
     wx.navigateTo({
       url: '/pages/mission/toDeliver/toDeliver',
+    })
+  },
+  report(){
+    console.log('123')
+    wx.request({
+      url: 'http://127.0.0.1:3000/post',
+      method:"post",
+      data:{
+        name:'林君怡',
+        type:'sdu'
+      },
+      header: {
+        'Content-Type': 'application/json'
+      },
+      success(res){
+        console.log(res)
+      }
+    })
+  },
+  openGetSelect(){
+    this.setData({
+      getShow:true,
+    })
+  },
+  onClose(){
+    this.setData({
+      getShow:false
     })
   },
   selectTab(e){

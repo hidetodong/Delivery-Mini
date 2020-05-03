@@ -5,32 +5,59 @@
 <view class="deliver-form">
    <view class="form-inner">
       <view class="deliver-title">取件地点:</view>
-      <view></view>
+      <view class="select-com" bindtap="openGetSelect">请选择取件地点</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">送达地点:</view>
-      <view></view>
+      <view class="select-com" bindtap="openSendSelect">请选择送达地点</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">快递类型:</view>
-      <view></view>
+      <view class="select-com" bindtap="openDeliverSelect">请选择快递类型</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">联系电话:</view>
-      <view></view>
+      <input type="digit" class="price-input" placeholder="请输入联系电话"></input>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">任务赏金:</view>
-      <view></view>
+      <!-- <view></view -->
+      <input type="digit" class="price-input" placeholder="请输入任务赏金"></input>
+      <text class="yuan">元</text>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">最晚送达时间:</view>
-      <view></view>
+      <view class="select-com" bindtap="openTimeSelect">请输入最晚时间</view>
    </view>
    <view class="deliver-title">取件信息:</view>
    <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此"></textarea>
 </view>
 
 <view class="bottom-btn">
-   <view  class="deliver-btn" hover-class="deliver-btn-hover">发布</view>
+   <view  class="deliver-btn" hover-class="deliver-btn-hover" bindtap="report">发布</view>
 </view>
+<van-action-sheet
+  show="{{ getShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+<van-action-sheet
+  show="{{ sendShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+<van-action-sheet
+  show="{{ deliverShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+<van-popup show="{{ timeSelectShow }}" bind:close="onClose" position='bottom'>
+   <van-datetime-picker
+      type="datetime"
+      value="{{ currentDate }}"
+      bind:input="onInput"
+   />
+</van-popup>

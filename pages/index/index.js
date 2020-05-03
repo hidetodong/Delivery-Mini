@@ -7,11 +7,42 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    getShow:false,
+    sendShow:false,
+    actions: [
+      {
+        name: '选项'
+      },
+      {
+        name: '选项'
+      },
+      {
+        name: '选项',
+        subname: '副文本',
+        openType: 'share'
+      }
+    ]
   },
   toDeliver(){
     wx.navigateTo({
       url: '/pages/mission/toDeliver/toDeliver',
+    })
+  },
+  openGet(){
+    this.setData({
+      getShow:true
+    })
+  },
+  openSend(){
+    this.setData({
+      sendShow:true
+    })
+  },
+  onClose(){
+    this.setData({
+      getShow:false,
+      sendShow:false
     })
   },
   //事件处理函数

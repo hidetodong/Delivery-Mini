@@ -3,11 +3,11 @@
 <view class="top-select flex-r-b">
   <view class="">  
     <view class="option-title">快递站点</view>
-    <view>全部</view>
+    <view style="text-align:center;" bindtap="openGet">全部</view>
   </view>
   <view class="">
     <view class="option-title">送达地点</view>
-    <view>全部</view>
+    <view style="text-align:center;" bindtap="openSend">全部</view>
   </view>
 </view>
 <!-- 列表部分 -->
@@ -47,3 +47,15 @@
   <image src="/images/send.png" style="width:44rpx;height:44rpx;"></image>
   <view class="deliver-text">发布</view>
 </view>
+<van-action-sheet
+  show="{{ getShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>
+<van-action-sheet
+  show="{{ sendShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>

@@ -5,7 +5,78 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    show:false,
+    getShow:false,
+    sendShow:false,
+    deliverShow:false,
+    timeSelectShow:false,
+    actions: [
+      {
+        name: '选项'
+      },
+      {
+        name: '选项'
+      },
+      {
+        name: '选项',
+        subname: '副文本',
+        openType: 'share'
+      }
+    ]
+  },
+  report(){
+    console.log('123')
+    wx.request({
+      url: 'http://127.0.0.1:3000/post',
+      method:"post",
+      data:{
+        name:'林君怡',
+        type:'sdu'
+      },
+      query:{
+        name:'林君怡',
+        type:'sdu'
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'data':{
+          name:'林君怡',
+          type:'sdu'
+        }
+      },
+      success(res){
+        console.log(res)
+      }
+    })
+  },
+  openGetSelect(){
+    this.setData({
+      getShow:true,
+    })
+  },
+  openSendSelect(){
+    this.setData({
+      sendShow:true,
+    })
+  },
+  openDeliverSelect(){
+    this.setData({
+      deliverShow:true
+    })
+  },
+  openTimeSelect(){
+    this.setData({
+      timeSelectShow:true
+    })
+    
+  },
+  onClose(){
+    this.setData({
+      getShow:false,
+      sendShow:false,
+      deliverShow:false,
+      timeSelectShow:false
+    })
   },
   toDeliver(){
     wx.navigateTo({

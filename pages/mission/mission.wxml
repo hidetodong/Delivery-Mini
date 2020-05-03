@@ -11,7 +11,7 @@
 </view>
 <view class="flex-r-b mission-status">
   <view>请选择任务状态</view>
-  <view>select</view>
+  <view style="color:#bbb;border:2rpx solid #bbb;padding:8rpx 32rpx;border-radius:25rpx;" bindtap="openGetSelect">待选择</view>
 </view>
 <view class="mission-list">
   <view 
@@ -59,5 +59,11 @@
 <view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="toDeliver">
   <view style="height:20rpx;"></view>
   <image src="/images/send.png" style="width:44rpx;height:44rpx;"></image>
-  <view class="deliver-text">发布</view>
+  <view class="deliver-text" bindtap="report">发布</view>
 </view>
+<van-action-sheet
+  show="{{ getShow }}"
+  actions="{{ actions }}"
+  bind:close="onClose"
+  bind:select="onSelect"
+/>

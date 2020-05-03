@@ -10,13 +10,16 @@
   color: white;
 }
 .deliver-form{
-  padding: 32rpx 96rpx;
+  padding: 12rpx 96rpx;
   border-radius: 25rpx;
   background: white;
   box-shadow: 0 6rpx 4rpx #555;
   margin: 0 64rpx;
   /* height: 500rpx; */
   margin-top: -100rpx;
+}
+.yuan{
+  font-size: 28rpx;
 }
 .deliver-btn{
   width: 300rpx;
@@ -46,6 +49,7 @@
   width: 402rpx;
   margin: 24rpx 0;
   padding: 24rpx;
+  z-index: 0;
 }
 .deliver-title{
   font-size: 28rpx;
@@ -53,4 +57,17 @@
 }
 .form-inner{
   margin: 48rpx 0 ;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.price-input{
+  width:200rpx;
+  font-size: 28rpx;
+  margin-left: 32rpx;
+}
+.select-com{
+  font-size: 28rpx;
+  color:#aaa;
+  margin-left: 32rpx;
 }

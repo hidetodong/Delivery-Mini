@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-picker": "/miniprogram_npm/vant-weapp/picker/index",
+    "van-action-sheet": "/miniprogram_npm/vant-weapp/action-sheet/index",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-datetime-picker": "/miniprogram_npm/vant-weapp/datetime-picker/index"
+  },
   "navigationBarTitleText":"任务"
 }
