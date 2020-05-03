@@ -63,6 +63,13 @@
 					"id": -1,
 					"name": "pages/mission/toDeliver/toDeliver",
 					"pathName": "pages/mission/toDeliver/toDeliver",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/mission/mission",
+					"pathName": "pages/mission/mission",
 					"scene": null
 				}
 			]

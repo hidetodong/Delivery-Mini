@@ -5,6 +5,7 @@
   height: 100vh;
   width: 750rpx;
   background: white;
+  position: absolute;
 }
 .top-block{
   height: 50%;
@@ -33,6 +34,7 @@
   font-size: 60rpx;
   font-weight: 600;
   box-shadow: 0 12rpx 2rpx rgba(255,164,27,0.5);
+  z-index: 100;
 }
 .top-btn{
   background: #ffa41b;
@@ -49,4 +51,16 @@
 .bottom-btn-hover{
   box-shadow: 0 0rpx 0rpx rgba(255,164,27,0.5);
   transform: translateY(12rpx);
+}
+.or{
+  font-size: 70rpx;
+  position: absolute;
+  width: 750rpx;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  z-index: 1;
+  color: rgba(255,164,27,1);
+  text-shadow: 0 8rpx 4rpx #ddd;
+  font-weight:800;
 }

@@ -21,6 +21,10 @@
         小件
       </view>
       <!-- 站点信息 -->
+      <view class="flex-r-b">
+            <view class="body-title">快递站点</view>
+            <view class="body-title">送达地点</view>
+          </view>
       <view class="flex-r-b list-top-station">
         <view>菜鸟驿站</view>
         <view>17号楼</view>
@@ -28,10 +32,10 @@
       <view class="flex-r-b list-body">
         <view class="list-body-inner">
           <view>发布人:安安</view>
-          <view>交付时间：</view>
-          <view>2020年5月2日10:58:05</view>
+          <view>交付时间：2020年5月2日10:58:05</view>
         </view>
-        <view class="order-price">￥5</view>
+        <view class="order-price">
+          <text style="font-size:36rpx;">￥</text>5</view>
       </view>
       <view class="flex-r-b list-btn-block" style="justify-content:flex-end;">
         <view class="get-btn" hover-class="get-btn-hover">接取/我发布的</view>

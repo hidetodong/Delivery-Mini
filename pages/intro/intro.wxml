@@ -7,3 +7,4 @@
     <view class="btn bottom-btn" hover-class="bottom-btn-hover" bindtap="toList">我要接取</view>
   </view>
 </view>
+<view class="or">O R</view>

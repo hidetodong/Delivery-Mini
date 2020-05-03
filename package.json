@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/hidetodong/Delivery-Mini#readme",
   "dependencies": {
-    
+    "vant-weapp": "^0.5.28"
   }
 }

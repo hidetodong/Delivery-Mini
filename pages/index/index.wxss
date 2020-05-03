@@ -19,6 +19,10 @@
 }
 .list-body-inner{
   font-size: 26rpx;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 88rpx;
 }
 .top-select{
   padding:24rpx 128rpx;
@@ -74,13 +78,15 @@
 }
 .order-price{
   color: #ffa41b;
-  border: 4rpx solid #ffa41b;
+  /* border: 4rpx solid #ffa41b; */
   border-radius: 50%;
+  font-size: 50rpx;
   /* padding: 24rpx; */
   width: 88rpx;
   height: 88rpx;
   text-align: center;
   line-height: 88rpx;
+  text-shadow: 6rpx 4rpx 4rpx  rgba(255,164,27,0.5);
 }
 .get-btn{
   border-radius: 25rpx;
@@ -116,4 +122,9 @@
 }
 .deliver-text{
   color: white;
+}
+.body-title{
+  font-size: 24rpx;
+  color: #ccc;
+  font-weight: 600;
 }

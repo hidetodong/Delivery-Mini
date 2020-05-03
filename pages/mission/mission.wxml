@@ -9,6 +9,53 @@
     {{item.name}}
   </view>
 </view>
+<view class="flex-r-b mission-status">
+  <view>请选择任务状态</view>
+  <view>select</view>
+</view>
+<view class="mission-list">
+  <view 
+    class="list-inner"
+    wx:for="{{5}}"
+    wx:key='index'>
+      <!-- 主体部分 -->
+      <view class="list-body">
+        <view class="body-left">进行中</view>
+        <view class="body-right">
+          <view class="flex-r-b">
+            <view class="body-title">快递站点</view>
+            <view class="body-title">送达地点</view>
+          </view>
+          <view class="flex-r-b body-station">
+            <view>菜鸟驿站</view>
+            <view>17号楼</view>
+          </view>
+          <view class="flex-r-b user-info">
+            <view>安安</view>
+            <view>18100000000</view>
+          </view>
+          <view class="flex-r-b price-info">
+            <view class="order-price"><text style="font-size:36rpx">￥</text>5</view>
+            <view class="deal-time">交付时间:2020-5-3 10:27:39</view>
+          </view>
+          <view class="order-info">
+              这里是订单信息
+          </view>
+        </view>
+      </view>
+      <!-- 按键部分 -->
+      <view class="btn-block">
+        <view class="func-btn" hover-class="func-btn-hover" bindtap="toEdit">修改任务</view>
+        <view class="func-btn gray-btn" hover-class="func-btn-hover" bindtap="toCancel">取消任务</view>
+        <!-- <view class="func-btn" hover-class="func-btn-hover" bindtap="toReport">重新发布</view>
+        <view class="func-btn" hover-class="func-btn-hover" bindtap="toConfirm">确认收货</view> -->
+      </view>
+      <!-- 底部TAG -->
+      <view class="corner-tag">
+        小件
+      </view>
+    </view>
+</view>
 <view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="toDeliver">
   <view style="height:20rpx;"></view>
   <image src="/images/send.png" style="width:44rpx;height:44rpx;"></image>
