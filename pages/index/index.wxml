@@ -3,22 +3,22 @@
 <view class="top-select flex-r-b">
   <view class="">  
     <view class="option-title">快递站点</view>
-    <view style="text-align:center;" bindtap="openGet">全部</view>
+    <view style="text-align:center;" bindtap="openGet">{{getPoint}}</view>
   </view>
   <view class="">
     <view class="option-title">送达地点</view>
-    <view style="text-align:center;" bindtap="openSend">全部</view>
+    <view style="text-align:center;" bindtap="openSend">{{sendPoint}}</view>
   </view>
 </view>
 <!-- 列表部分 -->
 <view class="list-wrap">
   <view 
     class="list-inner"
-    wx:for="{{5}}"
+    wx:for="{{misList}}"
     wx:key="index"
     > 
       <view class="corner-tag">
-        小件
+        {{item.size}}
       </view>
       <!-- 站点信息 -->
       <view class="flex-r-b">
@@ -26,19 +26,20 @@
             <view class="body-title">送达地点</view>
           </view>
       <view class="flex-r-b list-top-station">
-        <view>菜鸟驿站</view>
-        <view>17号楼</view>
+        <view>{{item.start_station}}</view>
+        <view>{{item.end_station}}</view>
       </view>
       <view class="flex-r-b list-body">
         <view class="list-body-inner">
-          <view>发布人:安安</view>
-          <view>交付时间：2020年5月2日10:58:05</view>
+          <view>发布人:{{item.pusher}}</view>
+          <view>交付时间：{{item.end_time}}</view>
         </view>
         <view class="order-price">
-          <text style="font-size:36rpx;">￥</text>5</view>
+          <text style="font-size:36rpx;">￥</text>{{item.price}}</view>
       </view>
       <view class="flex-r-b list-btn-block" style="justify-content:flex-end;">
-        <view class="get-btn" hover-class="get-btn-hover">接取/我发布的</view>
+        <view class="get-btn" hover-class="get-btn-hover" wx:if="{{item.is_mine == 0}}" bindtap="toAccept" data-oid="{{item.oid}}">{{item.is_accept == 0?'接取':'已接取'}}</view>
+        <view class="get-btn2" wx:else>我发布的</view>
       </view>
     </view>
 </view>
@@ -49,13 +50,13 @@
 </view>
 <van-action-sheet
   show="{{ getShow }}"
-  actions="{{ actions }}"
+  actions="{{ getAction }}"
   bind:close="onClose"
-  bind:select="onSelect"
+  bind:select="onGetSelect"
 />
 <van-action-sheet
   show="{{ sendShow }}"
-  actions="{{ actions }}"
+  actions="{{ sendAction }}"
   bind:close="onClose"
-  bind:select="onSelect"
+  bind:select="onSendSelect"
 />

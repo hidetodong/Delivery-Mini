@@ -1,4 +1,5 @@
 // pages/mission/mission.js
+const app = getApp()
 Page({
 
   /**
@@ -15,22 +16,49 @@ Page({
     activeIndex:0,
     getShow:false,
     actions: [
+      {name:'全部',status:0},
       {
-        name: '选项'
+        name: '进行中',
+        status:1
       },
       {
-        name: '选项'
+        name: '已完成',
+        status:2
       },
       {
-        name: '选项',
-        subname: '副文本',
-        openType: 'share'
+        name: '已过期',
+        status:3
       }
+    ],
+    statusName:[
+      '全部','进行中','已完成','已过期'
     ]
   },
   toDeliver(){
     wx.navigateTo({
       url: '/pages/mission/toDeliver/toDeliver',
+    })
+  },
+  onSelect(e){
+    console.log(e)
+    let list = app.globalData.misList
+    let arr = []
+    if(e.detail.status == 0){
+      this.setData({
+        misList:app.globalData.misList
+      })
+    }else{
+      list.forEach((ele,idx)=>{
+        if(ele.status == e.detail.status){
+          arr.push(ele)
+        }
+      })
+      this.setData({
+        misList:arr
+      })
+    }
+    this.setData({
+      getShow:false
     })
   },
   report(){
@@ -71,7 +99,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      misList:app.globalData.misList
+    })
   },
 
   /**
@@ -85,7 +115,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      misList:app.globalData.misList
+    })
   },
 
   /**

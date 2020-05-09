@@ -5,32 +5,36 @@
 <view class="deliver-form">
    <view class="form-inner">
       <view class="deliver-title">取件地点:</view>
-      <view class="select-com" bindtap="openGetSelect">请选择取件地点</view>
+      <view class="select-com" bindtap="openGetSelect">{{getPoint==''?'请选择取件地点':getPoint}}</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">送达地点:</view>
-      <view class="select-com" bindtap="openSendSelect">请选择送达地点</view>
+      <view class="select-com" bindtap="openSendSelect">{{sendPoint==''?'请选择送达地点':sendPoint}}</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">快递类型:</view>
-      <view class="select-com" bindtap="openDeliverSelect">请选择快递类型</view>
+      <view class="select-com" bindtap="openDeliverSelect">{{deliverType==''?'请选择快递类型':deliverType}}</view>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">联系电话:</view>
-      <input type="digit" class="price-input" placeholder="请输入联系电话"></input>
+      <input type="digit" class="price-input" placeholder="请输入联系电话" value="{{Phone}}" bindinput="getPhone"></input>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">任务赏金:</view>
       <!-- <view></view -->
-      <input type="digit" class="price-input" placeholder="请输入任务赏金"></input>
+      <input type="digit" class="price-input" placeholder="请输入任务赏金" value="{{Price}}" bindinput="getPrice"></input>
       <text class="yuan">元</text>
    </view>
    <view  class="form-inner">
       <view class="deliver-title">最晚送达时间:</view>
-      <view class="select-com" bindtap="openTimeSelect">请输入最晚时间</view>
+      <view class="select-com">
+          <picker mode="date" value="{{lastTime }}"  bindchange="getTime">
+            {{ lastTime == ''?'请选择时间':lastTime}}      
+         </picker>
+      </view>
    </view>
    <view class="deliver-title">取件信息:</view>
-   <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此"></textarea>
+   <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此" value="{{content}}" bindinput="getContent"></textarea>
 </view>
 
 <view class="bottom-btn">
@@ -38,26 +42,28 @@
 </view>
 <van-action-sheet
   show="{{ getShow }}"
-  actions="{{ actions }}"
+  actions="{{ getAction }}"
   bind:close="onClose"
-  bind:select="onSelect"
+  bind:select="onGetSelect"
 />
 <van-action-sheet
   show="{{ sendShow }}"
-  actions="{{ actions }}"
+  actions="{{ sendAction }}"
   bind:close="onClose"
-  bind:select="onSelect"
+  bind:select="onSendSelect"
 />
 <van-action-sheet
   show="{{ deliverShow }}"
   actions="{{ actions }}"
   bind:close="onClose"
-  bind:select="onSelect"
+  bind:select="onDeliverSelect"
 />
 <van-popup show="{{ timeSelectShow }}" bind:close="onClose" position='bottom'>
-   <van-datetime-picker
+   <!-- <van-datetime-picker
       type="datetime"
-      value="{{ currentDate }}"
+      value="{{ lastTime }}"
       bind:input="onInput"
-   />
+      bind:confirm="getTime"
+   /> -->
+  
 </van-popup>

@@ -1,11 +1,13 @@
 // pages/center/center.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    pushCash:app.globalData.pushCash,
+    pullCash:app.globalData.pullCash
   },
   toMission(){
     wx.navigateTo({
@@ -17,11 +19,22 @@ Page({
       url: '/pages/center/studentAuth/studentAuth',
     })
   },
+  toReg(){
+    wx.navigateTo({
+      url: '/pages/register/register',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      pusher:app.globalData.pusher,
+      stu_code:app.globalData.stu_code,
+      isAuth:app.globalData.is_auth,
+      pushCash:app.globalData.pushCash,
+      pullCash:app.globalData.pullCash
+    })
   },
 
   /**
@@ -35,7 +48,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      pusher:app.globalData.pusher,
+      stu_code:app.globalData.stu_code,
+      isAuth:app.globalData.is_auth,
+      pushCash:app.globalData.pushCash,
+      pullCash:app.globalData.pullCash
+    })
   },
 
   /**

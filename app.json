@@ -6,7 +6,8 @@
     "pages/mission/mission",
     "pages/center/center",
     "pages/mission/toDeliver/toDeliver",
-    "pages/center/studentAuth/studentAuth"
+    "pages/center/studentAuth/studentAuth",
+    "pages/register/register"
   ],
   "window": {
     "backgroundTextStyle": "light",

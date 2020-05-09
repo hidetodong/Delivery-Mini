@@ -1,0 +1,9 @@
+<!--pages/register/register.wxml-->
+<view>
+  <view class="middle-user-block">
+    用户名：
+    <input value="{{userName}}"></input>
+    密码：
+    <input value="{{password}}"></input>
+  </view>
+</view>

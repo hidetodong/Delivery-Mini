@@ -11,7 +11,7 @@
   height: 50%;
   width: 100%;
   position: relative;
-  border-top: 2rpx solid rgba(255,164,27,0.7);
+  /* border-top: 2rpx solid rgba(255,164,27,0.7); */
 }
 .bottom-block{
   height: 50%;

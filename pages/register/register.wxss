@@ -1,0 +1,8 @@
+/* pages/register/register.wxss */
+.middle-user-block{
+  margin: 0 32rpx;
+  background: white;
+  border-radius: 25rpx;
+  padding: 32rpx;
+  box-shadow: 0 6rpx 2rpx #aaa;
+}

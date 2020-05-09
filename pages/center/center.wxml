@@ -1,38 +1,43 @@
 <!--pages/center/center.wxml-->
-<view class="top-earning-block flex-r-b">
-  <view class="earn-left">
-    <view class="flex-wrap">
-      <view style="height:30rpx;"></view>
-      <view class="earn-price">+0.00元</view>
-      <view class="earn-text">代领总收入</view>
-    </view>
-  </view>
-  <view class="earn-right">
-    <view class="flex-wrap">
-      <view style="height:30rpx;color:white;"></view>
-      <view class="earn-price" style="color:white;">+0.00元</view>
-      <view class="earn-text" style="color:white;">发布总支出</view>
-    </view>
-  </view>
-  <view class="square"></view>
-  <view class="slash"></view>
+<view class="top-earning-block flex-r-b" wx:if="{{isAuth}}">
+	<view class="earn-left">
+		<view class="flex-wrap">
+			<view style="height:30rpx;"></view>
+			<view class="earn-price">+{{pullCash}}元</view>
+			<view class="earn-text">代领总收入</view>
+		</view>
+	</view>
+	<view class="earn-right">
+		<view class="flex-wrap">
+			<view style="height:30rpx;color:white;"></view>
+			<view class="earn-price" style="color:white;">-{{pushCash}}元</view>
+			<view class="earn-text" style="color:white;">发布总支出</view>
+		</view>
+	</view>
+	<view class="square"></view>
+	<view class="slash"></view>
 </view>
-<view class="middle-user-block flex-r-s">
-  <view class="user-ava">
-    <image src="" class="user-img"></image>
-  </view>
-  <view class="user-right-block">
-    <view class="user-nickname">安安123456
-      <text class="auth-tag">未认证</text>
-    </view>
-    <view class="user-code">学号:未知</view>
-  </view>
+<view class="middle-user-block flex-r-s" style="{{!isAuth?'margin-top:32rpx;':''}}">
+	<block wx:if="{{isAuth}}">
+		<view class="user-ava">
+			<image src="" class="user-img"></image>
+		</view>
+		<view class="user-right-block">
+			<view class="user-nickname">{{pusher}}
+				<text class="auth-tag">{{stu_code?'已认证':'未认证'}}</text>
+			</view>
+			<view class="user-code">学号:{{stu_code==''?'未知':stu_code}}</view>
+		</view>
+	</block>
+	<block wx:else>
+    <view class="user-nickname" bindtap="toReg">立即注册/登录</view>
+	</block>
 </view>
-<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toAuth">
-  <view class="user-auth">学生认证</view>
-  <image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
+<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toAuth"  wx:if="{{isAuth}}">
+	<view class="user-auth">学生认证</view>
+	<image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
 </view>
-<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toMission">
-  <view class="user-auth">我的任务</view>
-  <image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
+<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toMission" wx:if="{{isAuth}}">
+	<view class="user-auth">我的任务</view>
+	<image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
 </view>
