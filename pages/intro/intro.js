@@ -1,11 +1,12 @@
 // pages/intro/intro.js
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    isLogin:app.globalData.is_login
   },
 
   /**
@@ -22,7 +23,9 @@ Page({
     })
   },
   onLoad: function (options) {
-
+    this.setData({
+      isLogin:app.globalData.is_login == 0 ? false:true
+    })
   },
 
   /**
@@ -36,9 +39,30 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      isLogin:app.globalData.is_login == 0 ? false:true
+    })
   },
+  toLogin(){
+    wx.showModal({
+      title:'提示',
+      content:'请先登录/注册',
+      success:(res)=>{
+        if(res.confirm){
+          wx.navigateTo({
+            url: '/pages/register/register',
+          })
+        }
+        if(res.cancel){
+          
+        }
+      },
+      fail:()=>{
 
+      }
+    })
+    
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

@@ -1,9 +1,15 @@
 <!--pages/register/register.wxml-->
-<view>
+<view style="margin-top:32rpx;">
   <view class="middle-user-block">
     用户名：
-    <input value="{{userName}}"></input>
+    <input value="{{username}}" style="border-bottom:2rpx solid #eee;" bindinput="getName"></input>
     密码：
-    <input value="{{password}}"></input>
+    <input value="{{password}}" style="border-bottom:2rpx solid #eee;" bindinput="getPass" type='password'></input>
+  </view>
+  <view style="margin:24rpx auto; width:400rpx;text-align:center;" class="get-btn" hover-class="get-btn-hover" bindtap="login">
+    登录
+  </view>
+  <view style="font-size:24rpx;font-weight:500;color:#ccc;margin-top:48rpx;text-align:center;">
+    非注册用户自动注册
   </view>
 </view>

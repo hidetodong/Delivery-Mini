@@ -40,22 +40,10 @@ App({
     pullCash: 0,
     stu_code: '',
     is_auth: 0,
-    misList: [{
-        oid: '1',
-        size: '大件',
-        start_station: '菜鸟驿站',
-        end_station: '17号楼',
-        pusher: '安安',
-        is_mine: 1,
-        is_accept: 0,
-        price: 5,
-        status: 1,
-        end_time: '2020-05-16 17:00',
-        phone: '15899999999',
-        content: '感谢'
-      },
+    is_login:0,
+    misList: [
       {
-        oid: '4',
+        oid: '1',
         size: '超大件',
         start_station: '菜鸟驿站',
         end_station: '17号楼',
@@ -63,10 +51,10 @@ App({
         is_mine: 0,
         is_accept: 0,
         price: 5,
-        status: 1,
+        status: 0,
         end_time: '2020-05-16 17:00',
         phone: '15899999999',
-        content: '感谢'
+        content: '【菜鸟驿站】天天快递单号*1522，请21点前凭货号10672到菜鸟驿站进行取件'
       },
       {
         oid: "2",
@@ -76,11 +64,11 @@ App({
         pusher: '阿武',
         is_mine: 0,
         price: 20,
-        status: 2,
-        is_accept: 1,
+        status: 0,
+        is_accept: 0,
         end_time: '2020-05-20 08:00',
         phone: '15811111111',
-        content: '准时到'
+        content: '【菜鸟驿站】天天快递单号*1159，请21点前凭货号10692到菜鸟驿站进行取件'
       },
       {
         oid: '3',
@@ -90,21 +78,132 @@ App({
         pusher: '阿强',
         is_mine: 0,
         price: 10,
-        status: 3,
+        status: 0,
         is_accept: 0,
         end_time: '2020-05-15 11:00',
         phone: '15822222222',
-        content: '放在楼下'
+        content: '【菜鸟驿站】天天快递单号*2105，请21点前凭货号20515到菜鸟驿站进行取件'
+      },
+      {
+        oid: '4',
+        size: '大件',
+        start_station: '传媒学院',
+        end_station: '17号楼',
+        pusher: '阿强',
+        is_mine: 0,
+        price: 10,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-12 11:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*2105，请21点前凭货号20515到菜鸟驿站进行取件'
+      },
+      {
+        oid: '5',
+        size: '小件',
+        start_station: '12号楼收发室',
+        end_station: '17号楼',
+        pusher: '阿强',
+        is_mine: 0,
+        price: 10,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-14 19:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*2155，请21点前凭货号11047到菜鸟驿站进行取件'
+      },
+      {
+        oid: '6',
+        size: '超大件',
+        start_station: '16号楼收发室',
+        end_station: '1号楼',
+        pusher: '阿牛',
+        is_mine: 0,
+        price: 10,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-13 16:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*1088，请21点前凭货号21082到菜鸟驿站进行取件'
+      },
+      {
+        oid: '7',
+        size: '大件',
+        start_station: '12号楼收发室',
+        end_station: '14号楼',
+        pusher: '阿牛',
+        is_mine: 0,
+        price: 10,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-15 15:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*1188，请21点前凭货号22541到菜鸟驿站进行取件'
+      },
+      {
+        oid: '8',
+        size: '大件',
+        start_station: '生活区门口',
+        end_station: '17号楼',
+        pusher: '阿牛',
+        is_mine: 0,
+        price: 10,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-15 17:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*1108，请21点前凭货号21541到菜鸟驿站进行取件'
+      },
+      {
+        oid: '9',
+        size: '小件',
+        start_station: '16号楼收发室',
+        end_station: '17号楼',
+        pusher: '阿强',
+        is_mine: 0,
+        price: 1,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-15 18:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*1118，请21点前凭货号22510到菜鸟驿站进行取件'
+      },
+      {
+        oid: '10',
+        size: '大件',
+        start_station: '12号楼收发室',
+        end_station: '5号楼',
+        pusher: '阿强',
+        is_mine: 0,
+        price: 1,
+        status: 0,
+        is_accept: 0,
+        end_time: '2020-05-11 20:00',
+        phone: '15822222222',
+        content: '【菜鸟驿站】天天快递单号*1229，请21点前凭货号22850到菜鸟驿站进行取件'
       },
     ],
     stuCodeArr:[
-      '160710222',
-      '160710112',
-      '160720222'
+      {
+        code:'160710222',
+        name:'niuniu'
+      },
+      {
+        code:'160710112',
+        name:'阿武'
+      },
+      {
+        code:'160720222',
+        name:'阿和'
+      },
+      {
+        code: '150705241',
+        name:'杨妮'
+      }
     ],
     user:[{
       name:'安安',
-      pass:'123456'
+      pass:'1'
     },{
       name:'海丝',
       pass:'123456'

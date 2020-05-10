@@ -9,10 +9,10 @@
     {{item.name}}
   </view>
 </view>
-<view class="flex-r-b mission-status">
+<!-- <view class="flex-r-b mission-status">
   <view>请选择任务状态</view>
-  <view style="color:#bbb;border:2rpx solid #bbb;padding:8rpx 32rpx;border-radius:25rpx;" bindtap="openGetSelect">待选择</view>
-</view>
+  <view style="color:#bbb;border:2rpx solid #bbb;padding:8rpx 32rpx;border-radius:25rpx;" bindtap="openGetSelect">{{statusType}}</view>
+</view> -->
 <view class="mission-list">
   <view 
     class="list-inner"
@@ -45,9 +45,9 @@
       </view>
       <!-- 按键部分 -->
       <view class="btn-block">
-        <view class="func-btn" hover-class="func-btn-hover" bindtap="confirmArrive" wx:if="{{item.status == 1 && activeIndex == 1 }}">确认送达</view>
-        <view class="func-btn gray-btn" hover-class="func-btn-hover" bindtap="toCancel" wx:if='{{item.status == 1 && activeIndex == 0}}'>取消任务</view>
-        <view class="func-btn gray-btn" hover-class="func-btn-hover" bindtap="toCancelMis" wx:if="{{item.status == 2 && activeIndex == 1}}">放弃任务</view>
+        <view class="func-btn" hover-class="func-btn-hover" data-oid="{{item.oid}}" bindtap="confirmArrive" wx:if="{{item.status == 1 && activeIndex == 1 && item.is_mine==0 && item.is_accept == 1}}">确认送达</view>
+        <view class="func-btn gray-btn" hover-class="func-btn-hover" bindtap="toCancel" data-oid="{{item.oid}}" wx:if='{{(item.status == 1||item.status == 0) && activeIndex == 0 && item.is_mine ==1 }}'>取消任务</view>
+        <view class="func-btn gray-btn" hover-class="func-btn-hover" bindtap="toCancelMis" data-oid="{{item.oid}}" wx:if="{{item.status == 1 && activeIndex == 1 && item.is_mine == 0 && item.is_accept == 1}}">放弃任务</view>
         <!-- <view class="func-btn" hover-class="func-btn-hover" bindtap="toReport">重新发布</view>
         <view class="func-btn" hover-class="func-btn-hover" bindtap="toConfirm">确认收货</view> -->
       </view>
