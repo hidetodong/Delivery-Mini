@@ -11,6 +11,7 @@ Page({
     sendShow:false,
     deliverShow:false,
     timeSelectShow:false,
+    lastDate:'',
     actions: [
       {
         name: '小件'
@@ -23,18 +24,54 @@ Page({
       }
     ],
     getAction: [{
+      name:'全部',
+      value:''
+    },{
       name: '菜鸟驿站',
       value: 1
     }, {
       name: '传媒学院',
       value: 2
+    },
+    {
+      name:'12号楼收发室',
+      value:3
+    },{
+      name:'16号楼收发室',
+      value:4
+    },{
+      name:'生活区门口',
+      value:5
     }],
     sendAction: [{
-        name: '17号楼',
+      name:'全部',
+      value:''
+    },{
+        name: '1号楼',
+        value: 3
+      },
+      {
+        name:'2号楼',
+        value: 4
+      },
+      {
+        name: '3号楼',
+        value: 3
+      },
+      {
+        name:'4号楼',
+        value: 4
+      },
+      {
+        name: '5号楼',
         value: 3
       },
       {
         name:'14号楼',
+        value: 4
+      },
+      {
+        name:'17号楼',
         value: 4
       }
     ],
@@ -46,7 +83,7 @@ Page({
     lastTime:'',
     content:'',
     pusher:app.globalData.pusher,
-
+    showArea:true
   },
   report(){
     // console.log('123')
@@ -70,9 +107,11 @@ Page({
       phone:this.data.Phone,
       pusher:this.data.pusher,
       content:this.data.content,
-      status:1,
-      end_time:this.data.lastTime,
-      oid:Number(list.length + 1)
+      status:0,
+      end_time:this.data.lastDate +' '+this.data.lastTime,
+      oid:Number(list.length + 1),
+      is_accept:0,
+      is_mine:1
     })
     app.globalData.misList = list
     // 增加总支出
@@ -84,11 +123,13 @@ Page({
   openGetSelect(){
     this.setData({
       getShow:true,
+      showArea:false,
     })
   },
   openSendSelect(){
     this.setData({
       sendShow:true,
+      showArea:false
     })
   },
   getContent(e){
@@ -116,6 +157,7 @@ Page({
       getShow: false,
       sendShow: false,
       deliverShow:false,
+      showArea:true
     })
   },
   onSendSelect(e){
@@ -124,7 +166,8 @@ Page({
       sendPoint:e.detail.name,
       getShow: false,
       sendShow: false,
-      deliverShow:false
+      deliverShow:false,
+      showArea:true
     })
   },
   onDeliverSelect(e){
@@ -133,11 +176,12 @@ Page({
       deliverType:e.detail.name,
       getShow: false,
       sendShow: false,
-      deliverShow:false
+      deliverShow:false,
+      showArea:true
 
     })
   },
-  getTime(e){
+  getDate(e){
     let val = e.detail.value
       val = new Date(val)
       let year = val.getFullYear()
@@ -149,16 +193,22 @@ Page({
       if (day >= 1 && day <= 9) { day = `0${day}` }
       if (hour >= 0 && hour <= 9) { hour = `0${hour}` }
       if (minute >= 0 && minute <= 9) { minute = `0${minute}` }
-      let timeValue = `${year}-${month}-${day} ${hour}:${minute}`
+      let timeValue = `${year}-${month}-${day}`
       console.log(timeValue)
       this.setData({
-        lastTime:timeValue
+        lastDate:timeValue
       })
-  
+  },
+  getTime(e){
+    let val = e.detail.value
+      this.setData({
+        lastTime:val
+      })
   },
   openDeliverSelect(){
     this.setData({
-      deliverShow:true
+      deliverShow:true,
+      showArea:false
     })
   },
   openTimeSelect(){
@@ -172,7 +222,8 @@ Page({
       getShow:false,
       sendShow:false,
       deliverShow:false,
-      timeSelectShow:false
+      timeSelectShow:false,
+      showArea:true
     })
   },
   toDeliver(){
@@ -198,7 +249,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      pusher:app.globalData.pusher
+    })
   },
 
   /**

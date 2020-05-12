@@ -1,5 +1,5 @@
 <!--pages/center/center.wxml-->
-<view class="top-earning-block flex-r-b" wx:if="{{isAuth}}">
+<view class="top-earning-block flex-r-b" wx:if="{{isLogin}}">
 	<view class="earn-left">
 		<view class="flex-wrap">
 			<view style="height:30rpx;"></view>
@@ -17,10 +17,10 @@
 	<view class="square"></view>
 	<view class="slash"></view>
 </view>
-<view class="middle-user-block flex-r-s" style="{{!isAuth?'margin-top:32rpx;':''}}">
-	<block wx:if="{{isAuth}}">
+<view class="middle-user-block flex-r-s" style="{{!isLogin?'margin-top:32rpx;':''}}" bindtap="{{isLogin?'':'toReg'}}">
+	<block wx:if="{{isLogin}}">
 		<view class="user-ava">
-			<image src="" class="user-img"></image>
+			<image src="{{isLogin?'/images/ava.jpg':''}}" class="user-img"></image>
 		</view>
 		<view class="user-right-block">
 			<view class="user-nickname">{{pusher}}
@@ -30,14 +30,19 @@
 		</view>
 	</block>
 	<block wx:else>
-    <view class="user-nickname" bindtap="toReg">立即注册/登录</view>
+    <view class="user-nickname">立即注册/登录</view>
 	</block>
 </view>
-<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toAuth"  wx:if="{{isAuth}}">
+<view class="to-auth flex-r-b" style="align-items:center;" bindtap="{{!isAuth?'toAuth':''}}"  wx:if="{{isLogin}}">
 	<view class="user-auth">学生认证</view>
-	<image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
+	<image style="width:32rpx;height:32rpx;" src="/images/arrow.png" wx:if="{{!isAuth}}"></image>
+	<view style="font-size:24rpx;color:#ffa41b;" wx:else>已认证</view>
 </view>
-<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toMission" wx:if="{{isAuth}}">
+<view class="to-auth flex-r-b" style="align-items:center;" bindtap="toMission" wx:if="{{isLogin}}">
 	<view class="user-auth">我的任务</view>
 	<image style="width:32rpx;height:32rpx;" src="/images/arrow.png"></image>
 </view>
+
+<view class="top-block" wx:if="{{isLogin}}">
+    <view class="btn top-btn" hover-class="top-btn-hover" bindtap="{{isLogin?'quit':''}}">退出登录</view>
+  </view>

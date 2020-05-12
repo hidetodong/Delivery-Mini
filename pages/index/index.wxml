@@ -38,12 +38,12 @@
           <text style="font-size:36rpx;">￥</text>{{item.price}}</view>
       </view>
       <view class="flex-r-b list-btn-block" style="justify-content:flex-end;">
-        <view class="get-btn" hover-class="get-btn-hover" wx:if="{{item.is_mine == 0}}" bindtap="toAccept" data-oid="{{item.oid}}">{{item.is_accept == 0?'接取':'已接取'}}</view>
+        <view style="{{item.is_accept == 0 ?'':'opacity:0.7;'}}" class="get-btn" hover-class="{{item.is_accept == 0 ? 'get-btn-hover':''}}" wx:if="{{item.is_mine == 0}}" bindtap="{{isLogin?(isAuth?'toAccept':'toAuth'):'toLogin'}}" data-oid="{{item.oid}}">{{item.is_accept == 0?'接取':'已被接取'}}</view>
         <view class="get-btn2" wx:else>我发布的</view>
       </view>
     </view>
 </view>
-<view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="toDeliver">
+<view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="{{isLogin?'toDeliver':'toLogin'}}">
   <view style="height:20rpx;"></view>
   <image src="/images/send.png" style="width:44rpx;height:44rpx;"></image>
   <view class="deliver-text">发布</view>

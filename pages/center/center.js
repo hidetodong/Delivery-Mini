@@ -24,6 +24,20 @@ Page({
       url: '/pages/register/register',
     })
   },
+  quit(){
+    app.globalData.pusher = ''
+    app.globalData.stu_code = ''
+    app.globalData.is_auth = 0
+    app.globalData.is_login = 0
+    this.setData({
+      pusher:app.globalData.pusher,
+      stu_code:app.globalData.stu_code,
+      isAuth:app.globalData.is_auth,
+      isLogin:app.globalData.is_login,
+      pushCash:app.globalData.pushCash,
+      pullCash:app.globalData.pullCash
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -32,6 +46,7 @@ Page({
       pusher:app.globalData.pusher,
       stu_code:app.globalData.stu_code,
       isAuth:app.globalData.is_auth,
+      isLogin:app.globalData.is_login,
       pushCash:app.globalData.pushCash,
       pullCash:app.globalData.pullCash
     })
@@ -52,6 +67,8 @@ Page({
       pusher:app.globalData.pusher,
       stu_code:app.globalData.stu_code,
       isAuth:app.globalData.is_auth,
+      isLogin:app.globalData.is_login,
+
       pushCash:app.globalData.pushCash,
       pullCash:app.globalData.pullCash
     })

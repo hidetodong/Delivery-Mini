@@ -1,4 +1,12 @@
 <!--pages/center/studentAuth/studentAuth.wxml-->
-<view>
-
+<view style="margin-top:32rpx;">
+  <view class="middle-user-block">
+    学号：
+    <input value="{{code}}" style="border-bottom:2rpx solid #eee;" bindinput="getCode"></input>
+    姓名：
+    <input value="{{name}}" style="border-bottom:2rpx solid #eee;" bindinput="getName"></input>
+  </view>
+  <view style="margin:24rpx auto; width:400rpx;text-align:center;" class="get-btn" hover-class="get-btn-hover" bindtap="login">
+    认证
+  </view>
 </view>

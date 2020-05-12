@@ -16,7 +16,8 @@ Page({
     activeIndex:0,
     getShow:false,
     actions: [
-      {name:'全部',status:0},
+      {
+        name:'全部',status:''},
       {
         name: '进行中',
         status:1
@@ -31,21 +32,90 @@ Page({
       }
     ],
     statusName:[
-      '全部','进行中','已完成','已过期'
-    ]
+      '待领取','进行中','已完成','已过期'
+    ],
+    misType:0,
+    statusType:'全部'
   },
   toDeliver(){
     wx.navigateTo({
       url: '/pages/mission/toDeliver/toDeliver',
     })
   },
+  toCancel(e){
+    let list = app.globalData.misList
+    let arr = []
+    list.forEach((ele,idx)=>{
+      if(e.currentTarget.dataset.oid != ele.oid){
+        arr.push(ele)
+      }
+    })
+    app.globalData.misList = arr
+    this.selectTab({
+      currentTarget:{
+        dataset:{
+          index:this.data.activeIndex
+        }
+      }
+    })
+  },
+  toCancelMis(e){
+    let list = app.globalData.misList
+    list.forEach((ele,idx)=>{
+      if(e.currentTarget.dataset.oid == ele.oid){
+        ele.is_accept = 0
+        ele.status = 0
+      }
+    })
+    app.globalData.misList = list
+    this.selectTab({
+      currentTarget:{
+        dataset:{
+          index:this.data.activeIndex
+        }
+      }
+    })
+  },
+  confirmArrive(e){
+    let list = app.globalData.misList
+    list.forEach((ele,idx)=>{
+      if(e.currentTarget.dataset.oid == ele.oid){
+        ele.status = 2
+        app.globalData.pullCash += Number(ele.price)
+
+      }
+    })
+    app.globalData.misList = list
+    this.selectTab({
+      currentTarget:{
+        dataset:{
+          index:this.data.activeIndex
+        }
+      }
+    })
+  },
   onSelect(e){
     console.log(e)
     let list = app.globalData.misList
     let arr = []
-    if(e.detail.status == 0){
+    let arr1 = []
+    this.setData({
+      statusType:e.detail.name
+    })
+    if(e.detail.status == ''){
+      list.forEach((ele,idx)=>{
+        if(ele.is_mine != this.data.activeIndex){
+          if(this.data.activeIndex == 1){
+            if(ele.is_accept == 1){
+              arr1.push(ele)
+            }
+          }else{
+            arr1.push(ele)
+          }
+        }
+      })
       this.setData({
-        misList:app.globalData.misList
+        misList:arr1
       })
     }else{
       list.forEach((ele,idx)=>{
@@ -53,9 +123,21 @@ Page({
           arr.push(ele)
         }
       })
-      this.setData({
-        misList:arr
+      arr.forEach((ele,idx)=>{
+        if(ele.is_mine != this.data.activeIndex){
+          if(this.data.activeIndex == 1){
+            if(ele.is_accept == 1){
+              arr1.push(ele)
+            }
+          }else{
+            arr1.push(ele)
+          }
+        }
       })
+      this.setData({
+        misList:arr1
+      })
+
     }
     this.setData({
       getShow:false
@@ -90,8 +172,27 @@ Page({
   },
   selectTab(e){
     let {index} = e.currentTarget.dataset
+    let list = app.globalData.misList
+    let arr =[]
     this.setData({
       activeIndex:index
+    })
+    list.forEach((ele,idx)=>{
+      if(ele.is_mine != index){
+        if(this.data.activeIndex == 0){
+          arr.push(ele)
+        }
+        if(this.data.activeIndex == 1){
+          if(ele.is_accept == 1){
+            console.log(arr)
+            arr.push(ele)
+          }
+        }
+      }
+    })
+    this.setData({
+      misType:index,
+      misList:arr
     })
 
   },
@@ -99,9 +200,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({
-      misList:app.globalData.misList
-    })
+    
   },
 
   /**
@@ -115,8 +214,12 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      misList:app.globalData.misList
+    this.selectTab({
+      currentTarget:{
+        dataset:{
+          index:0
+        }
+      }
     })
   },
 

@@ -82,7 +82,6 @@
   border-radius: 50%;
   font-size: 50rpx;
   /* padding: 24rpx; */
-  width: 88rpx;
   height: 88rpx;
   text-align: center;
   line-height: 88rpx;

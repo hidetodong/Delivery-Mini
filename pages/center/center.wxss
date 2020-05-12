@@ -110,3 +110,24 @@
   height: 100rpx;
   line-height: 100rpx;
 }
+
+.btn{
+  position: absolute;
+  bottom: 25rpx;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
+  width: 500rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 25rpx;
+  font-size: 30rpx;
+  font-weight: 600;
+  box-shadow: 0 12rpx 2rpx rgba(255,164,27,0.5);
+  z-index: 100;
+}
+.top-btn{
+  background: #ffa41b;
+  color: white;
+}

@@ -26,19 +26,27 @@
       <text class="yuan">元</text>
    </view>
    <view  class="form-inner">
-      <view class="deliver-title">最晚送达时间:</view>
+      <view class="deliver-title">最晚送达日期:</view>
       <view class="select-com">
-          <picker mode="date" value="{{lastTime }}"  bindchange="getTime">
+          <picker mode="date" value="{{lastDate}}"  bindchange="getDate">
+            {{ lastDate == ''?'请选择日期':lastDate}}      
+         </picker>
+      </view>
+   </view>
+    <view  class="form-inner">
+      <view class="deliver-title">最晚送达日期:</view>
+      <view class="select-com">
+          <picker mode="time" value="{{lastTime}}"  bindchange="getTime">
             {{ lastTime == ''?'请选择时间':lastTime}}      
          </picker>
       </view>
    </view>
    <view class="deliver-title">取件信息:</view>
-   <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此" value="{{content}}" bindinput="getContent"></textarea>
+   <textarea maxlength="100" class="get-info" placeholder="请将收到的取件短信粘贴至此" value="{{content}}" bindinput="getContent" wx:if="{{showArea}}"></textarea>
 </view>
 
 <view class="bottom-btn">
-   <view  class="deliver-btn" hover-class="deliver-btn-hover" bindtap="report">发布</view>
+   <view class="deliver-btn" hover-class="deliver-btn-hover" bindtap="report">发布</view>
 </view>
 <van-action-sheet
   show="{{ getShow }}"

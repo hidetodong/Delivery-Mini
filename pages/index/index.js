@@ -19,20 +19,49 @@ Page({
     }, {
       name: '传媒学院',
       value: 2
+    },
+    {
+      name:'12号楼收发室',
+      value:3
+    },{
+      name:'16号楼收发室',
+      value:4
+    },{
+      name:'生活区门口',
+      value:5
     }],
     sendAction: [{
       name:'全部',
       value:''
     },{
-        name: '17号楼',
+        name: '1号楼',
+        value: 3
+      },
+      {
+        name:'2号楼',
+        value: 4
+      },
+      {
+        name: '3号楼',
+        value: 3
+      },
+      {
+        name:'4号楼',
+        value: 4
+      },
+      {
+        name: '5号楼',
         value: 3
       },
       {
         name:'14号楼',
         value: 4
+      },
+      {
+        name:'17号楼',
+        value: 4
       }
     ],
-    isAuth:true,
     getPoint:'全部',
     sendPoint:'全部',
     misList:app.globalData.misList
@@ -43,8 +72,46 @@ Page({
     // this.getMission()
     this.setData({
       // isAuth:app.globalData.is_auth,
-      misList:app.globalData.misList
+      isAuth:app.globalData.is_auth == 0 ? false :true,
+      isLogin:app.globalData.is_login == 0 ?false:true,
+      misList:this.handleMis(app.globalData.misList)
     })
+  },
+  handleMis(arr){
+    let arr1 =[]
+    arr.forEach((ele,idx)=>{
+      if(ele.is_accept == 0 && ele.status == 0){
+        arr1.push(ele)
+      }
+    })
+    return arr1
+  },
+  toAuth(){
+    wx.showModal({
+      title:'提示',
+      content:'认证即可接取订单',
+      success:(res)=>{
+        if(res.confirm){
+          wx.navigateTo({
+            url: '/pages/center/studentAuth/studentAuth',
+          })
+        }
+      }
+    })
+  },
+  toLogin(){
+    wx.showModal({
+      title:'提示',
+      content:'请先登录/注册',
+      success:(res)=>{
+        if(res.confirm){
+          wx.navigateTo({
+            url: '/pages/register/register',
+          })
+        }
+      }
+    })
+    
   },
   onGetSelect(e){
     console.log(e)
@@ -53,6 +120,8 @@ Page({
       getShow: false,
       sendShow: false
     })
+    this.filterData()
+
   },
   onSendSelect(e){
     console.log(e)
@@ -60,6 +129,37 @@ Page({
       sendPoint:e.detail.name,
       getShow: false,
       sendShow: false
+    })
+    this.filterData()
+
+  },
+  filterData(){
+    let list = app.globalData.misList
+    let arr1 = []
+    let arr2 = []
+    if(this.data.getPoint != '全部'){
+      list.forEach((ele)=>{
+        if(ele.start_station == this.data.getPoint){
+          arr1.push(ele)
+        }
+      })
+    }else{
+      arr1 = list
+    }
+    console.log(arr1)
+    if(this.data.sendPoint != '全部'){
+      arr1.forEach((ele)=>{
+        if(ele.end_station == this.data.sendPoint){
+          arr2.push(ele)
+        }
+      })
+    }else{
+      arr2 = arr1
+    }
+    let arr3 = this.handleMis(arr2)
+
+    this.setData({
+      misList:arr3
     })
   },
   toDeliver() {
@@ -81,11 +181,12 @@ Page({
     list.forEach((ele,idx)=>{
       if(ele.oid == oid){
         ele.is_accept = 1
-        ele.status = 2
+        ele.status = 1
         console.log(ele)
       }
     })
     app.globalData.misList = list
+    list = this.handleMis(list)
     this.setData({
       misList:list
     })
